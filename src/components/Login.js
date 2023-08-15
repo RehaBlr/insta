@@ -7,7 +7,10 @@ export default function Login() {
     formState: { errors },
   } = useForm();
 
-  const gonder = (data) => console.log(data);
+  const gonder = (data) => {
+    //request -> https://wit-courses.onrender.com/login,data
+    return console.log(data);
+  };
 
   return (
     <div className="max-w-[250px] mx-auto">
