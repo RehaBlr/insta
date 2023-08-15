@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useForm } from "react-hook-form";
 
 export default function Login() {
@@ -9,7 +10,14 @@ export default function Login() {
 
   const gonder = (data) => {
     //request -> https://wit-courses.onrender.com/login,data
-    return console.log(data);
+    axios
+      .post("https://wit-courses.onrender.com/login", data)
+      .then((response) => {
+        localStorage.setItem("insta", response.data.token);
+        //yönlendirme işlemi
+        //feedback vermek
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
