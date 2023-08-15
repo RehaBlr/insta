@@ -2,14 +2,16 @@ import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import MainNavigation from "./components/MainNavigation";
 
+import Login from "./components/Login";
+
 function App() {
   return (
-    <div className="container max-w-[480px] mx-auto bg-slate-200">
+    <div className="container max-w-[480px] mx-auto ">
       <MainNavigation />
 
       <Switch>
         <Route path="/" exact>
-          <h1 class="text-3xl font-bold text-violet-700">fotolar</h1>
+          <h1 className="text-3xl font-bold text-violet-700">fotolar</h1>
 
           <article className="border border-black">
             <div className="flex item-center p-2">
@@ -35,7 +37,7 @@ function App() {
           <h1 class="text-3xl font-bold text-green-700">Profil</h1>
         </Route>
         <Route path="/login">
-          <h1 class="text-3xl font-bold text-blue-700">Login</h1>
+          <Login />
         </Route>
       </Switch>
     </div>
