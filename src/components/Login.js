@@ -15,7 +15,10 @@ export default function Login() {
   const gonder = (data) => {
     //request -> https://wit-courses.onrender.com/login,data
     axios
-      .post("https://wit-courses.onrender.com/login", data)
+      .post(
+        "https://wit-courses.onrender.com/login",
+        data /*{...data,duration:"2m"}*/
+      )
       .then((response) => {
         localStorage.setItem("insta", response.data.token);
         //yönlendirme işlemi

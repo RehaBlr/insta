@@ -4,36 +4,26 @@ import MainNavigation from "./components/MainNavigation";
 
 import Login from "./components/Login";
 import { useState } from "react";
-import jwt_decode from "jwt-decode";
+import { checkLsForUser } from "./utils";
 /*
 localstorage'a bak 
 "insta" keyinde bir string varsa, bunu kontrol et
 çıkan objeyi user objesinin başlangıç değeri olarak ver.
 yoksa user = null olsun
 */
-
-function checkLsForUser() {
-  const token = localStorage.getItem("insta");
-  if (token) {
-    const user = jwt_decode(token);
-    //TODO: exp geçtiyse, null dön
-    return user;
-  } else {
-    return null;
-  }
-}
 function App() {
   const userFormLs = checkLsForUser();
   const [user, setUser] = useState(userFormLs);
+
+  console.log("içerdeki kullanıcı ", user);
+
   return (
     <div className="container max-w-[480px] mx-auto ">
       <MainNavigation />
 
       <Switch>
         <Route path="/" exact>
-          <h1 className="text-3xl font-bold text-violet-700">fotolar</h1>
-
-          <article className="border border-black">
+          <article className="bg-white">
             <div className="flex item-center p-2">
               <img
                 className="w-8 h-8 mr-3 rounded-full"
