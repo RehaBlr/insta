@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export default function Login() {
@@ -8,6 +9,8 @@ export default function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const history = useHistory();
 
   const gonder = (data) => {
     //request -> https://wit-courses.onrender.com/login,data
@@ -18,6 +21,9 @@ export default function Login() {
         //yönlendirme işlemi
         //feedback vermek
         toast.success("Giriş başarılı, Anasayfaya yönlendiriliyorsun");
+        setTimeout(() => {
+          history.push("/");
+        }, 3000);
       })
       .catch((error) => console.log(error));
   };
