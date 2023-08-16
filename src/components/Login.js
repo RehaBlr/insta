@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 export default function Login() {
   const {
@@ -16,6 +17,7 @@ export default function Login() {
         localStorage.setItem("insta", response.data.token);
         //yönlendirme işlemi
         //feedback vermek
+        toast.success("Giriş başarılı, Anasayfaya yönlendiriliyorsun");
       })
       .catch((error) => console.log(error));
   };
