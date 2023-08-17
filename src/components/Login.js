@@ -2,13 +2,15 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
+import jwt_decode from "jwt-decode";
 
-export default function Login() {
+export default function Login(props) {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const { setUser } = props;
 
   const history = useHistory();
 
@@ -24,6 +26,8 @@ export default function Login() {
         //yönlendirme işlemi
         //feedback vermek
         toast.success("Giriş başarılı, Anasayfaya yönlendiriliyorsun");
+        const user = jwt_decode(response.data.token);
+        setUser(user);
         setTimeout(() => {
           history.push("/");
         }, 3000);

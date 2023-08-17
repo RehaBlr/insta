@@ -47,7 +47,7 @@ function App() {
           <h1 class="text-3xl font-bold text-green-700">Profil</h1>
         </Route>
         <Route path="/login">
-          <Login />
+          <Login setUser={setUser} />
         </Route>
       </Switch>
     </div>
