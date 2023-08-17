@@ -6,7 +6,7 @@ import Login from "./components/Login";
 import { useState } from "react";
 import { checkLsForUser } from "./utils";
 import NewEntry from "./components/NewEntry";
-import Profile from "./components/Profile";
+import EntryList from "./components/EntryList";
 /*
 localstorage'a bak 
 "insta" keyinde bir string varsa, bunu kontrol et
@@ -24,11 +24,19 @@ function App() {
       <MainNavigation user={user} setUser={setUser} />
 
       <Switch>
-        <Route path="/" exact></Route>
-        <Route path="/me">
-          <NewEntry userId={user.id} />
-          <Profile />
+        <Route path="/" exact>
+          <EntryList />
         </Route>
+
+        {user && (
+          <>
+            <Route path="/me">
+              <NewEntry userId={user.id} />
+              <EntryList userId={user.id} />
+            </Route>
+          </>
+        )}
+
         <Route path="/login">
           <Login setUser={setUser} />
         </Route>

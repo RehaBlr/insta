@@ -16,7 +16,7 @@ export default function Entry(props) {
           alt="avatar"
         />
         <h3 className="font-bold flex-1">cute_cat</h3>
-        <div className="text-stone-600">{formattedDate}</div>
+        <div className="text-stone-600 text-sm">{formattedDate}</div>
       </div>
       <div>
         <img

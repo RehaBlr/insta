@@ -18,9 +18,11 @@ export default function (props) {
       <NavLink to="/" exact activeClassName="text-yellow-400">
         Anasayfa
       </NavLink>
-      <NavLink to="/me" activeClassName="text-yellow-400">
-        Profil
-      </NavLink>
+      {props.user && (
+        <NavLink to="/me" activeClassName="text-yellow-400">
+          Profil
+        </NavLink>
+      )}
       {props.user ? (
         <button onClick={handleLogout}>logout</button>
       ) : (

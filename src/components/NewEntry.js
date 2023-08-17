@@ -32,8 +32,9 @@ export default function NewEntry(props) {
   }
 
   return (
-    <div className="max-w-[320px] mx-auto">
-      <form onSubmit={handleSubmit(addEntry)}>
+    <div className="border border-white mb-8 py-6 rounded-lg">
+      <form className="max-w-[320px] mx-auto" onSubmit={handleSubmit(addEntry)}>
+        <h2 className="text-lg mb-2 font-bold">Yeni İçerik Ekle</h2>
         <label className="flex flex-col  gap-1 py-1">
           <span className="flex justify-between items-baseline">
             Açıklama{" "}
@@ -59,7 +60,7 @@ export default function NewEntry(props) {
           </span>
           <textarea
             className=" px-3 rounded"
-            rows={4}
+            rows={3}
             type="text"
             {...register("img_url", { required: true })}
           />
