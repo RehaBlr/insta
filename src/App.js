@@ -5,6 +5,7 @@ import MainNavigation from "./components/MainNavigation";
 import Login from "./components/Login";
 import { useState } from "react";
 import { checkLsForUser } from "./utils";
+import NewEntry from "./components/NewEntry";
 /*
 localstorage'a bak 
 "insta" keyinde bir string varsa, bunu kontrol et
@@ -44,7 +45,7 @@ function App() {
           </article>
         </Route>
         <Route path="/me">
-          <h1 class="text-3xl font-bold text-green-700">Profil</h1>
+          <NewEntry userId={user.id} />
         </Route>
         <Route path="/login">
           <Login setUser={setUser} />
