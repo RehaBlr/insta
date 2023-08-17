@@ -12,6 +12,7 @@ export default function (props) {
       history.push("/login");
     }, 2000);
   }
+
   return (
     <nav className="text-lg py-2 font-bold flex gap-2 justify-center">
       <NavLink to="/" exact activeClassName="text-yellow-400">
