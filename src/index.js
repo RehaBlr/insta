@@ -6,10 +6,18 @@ import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import { reducer } from "./store/reducer";
+
+const depo = createStore(reducer);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <ToastContainer position="top-left" autoClose={3000} theme="dark" />
-    <App />
-  </BrowserRouter>
+  <Provider store={depo}>
+    <BrowserRouter>
+      <ToastContainer position="top-left" autoClose={3000} theme="dark" />
+      <App />
+    </BrowserRouter>
+  </Provider>
 );

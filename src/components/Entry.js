@@ -15,7 +15,7 @@ export default function Entry(props) {
           src="https://hips.hearstapps.com/hmg-prod/images/large-cat-breed-1553197454.jpg"
           alt="avatar"
         />
-        <h3 className="font-bold flex-1">cute_cat</h3>
+        <h3 className="font-bold flex-1">{props.item.owner_name}</h3>
         <div className="text-stone-600 text-sm">{formattedDate}</div>
       </div>
       <div>
@@ -26,9 +26,9 @@ export default function Entry(props) {
         />
       </div>
       <div className="p-2">
-        <div className="text-sm">like,like sayısı</div>
+        <div className="text-sm">like,{Number(props.item.like_count)}</div>
         <div className="font-bold">{props.item.body}</div>
-        <div>comentler (opsiyonel)</div>
+        {/* <div>comentler (opsiyonel)</div> */}
       </div>
     </article>
   );
