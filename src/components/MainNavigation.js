@@ -1,16 +1,15 @@
 import { NavLink, useHistory } from "react-router-dom";
-import { toast } from "react-toastify";
 
-export default function (props) {
+import { logout } from "../store/actions";
+import { useDispatch } from "react-redux";
+
+export default function MainNavigation(props) {
   const history = useHistory();
 
+  const dispatch = useDispatch();
+
   function handleLogout() {
-    localStorage.removeItem("insta");
-    props.setUser(null);
-    toast.success("Çıkış başarılı", { autoClose: 1500 });
-    setTimeout(() => {
-      history.push("/login");
-    }, 2000);
+    dispatch(logout(history));
   }
 
   return (

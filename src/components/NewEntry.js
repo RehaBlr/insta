@@ -13,7 +13,7 @@ export default function NewEntry(props) {
 
   function addEntry(data) {
     const dataWithUserId = { ...data, owner_id: props.userId };
-    console.log("add new entry", dataWithUserId);
+    //console.log("add new entry", dataWithUserId);
 
     const token = localStorage.getItem("insta");
     axios
